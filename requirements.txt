@@ -1,0 +1,7 @@
+json
+pypdl
+os
+tqdm
+aiofiles
+aiohttp
+asyncio
