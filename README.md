@@ -1,40 +1,38 @@
-# model-manager
+# Model Manager
 
-A lightweight utility Python module that helps to download and manage Haven player(or similar apps) GGUF models from IPFS.
+A lightweight Python utility to fetch and organize .gguf model files from IPFS.  
+Built for [Haven Player](https://github.com/haven-hvn/haven-player) to manage model dependencies seamlessly.
 
-### Features
-- Downloads models using multiple IPFS gateways
-- Saves config alongside models
-- Handles fallback if a gateway fails
-- Asynchronous, non-blocking downloads
+## Features
 
-### Requirements
+- Downloads multiple model files from IPFS gateways
+- Stores models in organized models/ directory
+- Skips already downloaded files
+- Structured for import, not CLI
+
+## Installation
 
 ```bash
-pip install aiohttp aiofiles tqdm
+pip install -r requirements.txt
 
-Usage
+Usage (as a Python package)
 
-1. Add model metadata to models.json
+from model_manager.downloader import download_all_models
 
-2. Run:
+download_all_models()
 
-python test_downloader.py
+This will download all models defined in config_handler.py into the models/ directory.
 
-Downloaded models and their configs will be saved in:
+Directory Structure
 
-~/.haven/models/<model_name>/
+model-manager/
+├── model_manager/
+│   ├── _init_.py
+│   ├── downloader.py
+│   └── config_handler.py
+├── requirements.txt
+└── README.md
 
-Structure
+Notes
 
-model_manager/
-├── downloader.py
-├── config_handler.py
-├── models.json
-test_downloader.py
-
-Integration
-
-Import and use in Haven Player or other projects
-
-from model_manager.downloader import download_model
+Ensure both .gguf files belonging to a model are in the same folder for LM Studio to load them properly.
