@@ -17,8 +17,8 @@ pip install -r requirements.txt
 
 Usage (as a Python package)
 
-`from model_manager.downloader import download_all_models
-download_all_models()`
+```from model_manager.downloader import download_all_models
+download_all_models()```
 
 This will download all models defined in config_handler.py into the models/ directory.
 
